@@ -48,7 +48,7 @@ public class Prescription {
 			
 		}
 		
-		 SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd");
+		 SimpleDateFormat inputFormat = new SimpleDateFormat("dd-MM-yyyy" );
 		 String formattedDate = inputFormat.format(examinationDate);
 		 
 		if(optometrist.length() < 8 || optometrist.length() > 25) {

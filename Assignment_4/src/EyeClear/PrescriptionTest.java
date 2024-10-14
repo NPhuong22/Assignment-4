@@ -11,7 +11,7 @@ class PrescriptionTest {
 	private Date createExaminationDate(String dateString) {
         Date examinationDate = null;
         try {
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
             examinationDate = sdf.parse(dateString);
         } catch (Exception e) {
             fail("Date parsing failed");
@@ -25,7 +25,7 @@ class PrescriptionTest {
 	//valid prescription 
 	@Test
     void testValidPrescription() {
-		Date examinationDate = createExaminationDate("2024-10-25");
+		Date examinationDate = createExaminationDate("25-10-2024");
 
         Prescription prescription1 = new Prescription(1, "John", "Doey", "123 Main Street, Suburb, 12345", 
                 18.25f,  3.0f, 90f, examinationDate, "Williams");
@@ -43,7 +43,7 @@ class PrescriptionTest {
 	//invalid name
 	@Test
     void testInvalidName() {
-		Date examinationDate = createExaminationDate("2024-10-25");
+		Date examinationDate = createExaminationDate("25-10-2024");
 
         Prescription prescription1 = new Prescription(1, "Joe", "Doey", "123MainStreet,Suburb,12345", 
                                                      21.25f, 3.0f, 90f, examinationDate, "Williams");
@@ -64,7 +64,7 @@ class PrescriptionTest {
 	//invalid address
 	@Test
     void testInvalidAddress() {
-		Date examinationDate = createExaminationDate("2024-10-25");
+		Date examinationDate = createExaminationDate("25-10-2024");
 
         Prescription prescription = new Prescription(6, "John", "Doey", "1234 Short St, WXYZ", 
         		18.25f, 3.0f, 90f, examinationDate, "Alexander");
@@ -78,7 +78,7 @@ class PrescriptionTest {
 	
 	@Test
     void testInvalidSphere() {
-		Date examinationDate = createExaminationDate("2024-10-25");
+		Date examinationDate = createExaminationDate("25-10-2024");
 
         Prescription prescription1 = new Prescription(1, "John", "Doey", "123 Main Street, Suburb, 12345", -20.01f, 3.0f, 90f, examinationDate, "Williams");
         Prescription prescription2 = new Prescription(1, "John", "Doey", "123 Main Street, Suburb, 12345", 20.01f, 3.0f, 90f, examinationDate, "Williams");
@@ -93,7 +93,7 @@ class PrescriptionTest {
 	
 	@Test
     void testInvalidCylinder() {
-		Date examinationDate = createExaminationDate("2024-10-25");
+		Date examinationDate = createExaminationDate("25-10-2024");
 
         Prescription prescription1 = new Prescription(1, "John", "Doey", "123 Main Street, Suburb, 12345", 18.25f, 4.01f, 90f, examinationDate, "Williams");
         Prescription prescription2 = new Prescription(1, "John", "Doey", "123 Main Street, Suburb, 12345", 18.25f, -4.01f, 90f, examinationDate, "Williams");
@@ -105,7 +105,7 @@ class PrescriptionTest {
 	//invalid axis value
 	@Test
     void testInvalidAxis() {
-		Date examinationDate = createExaminationDate("2024-10-25");
+		Date examinationDate = createExaminationDate("25-10-2024");
 
         Prescription prescription1 = new Prescription(1, "John", "Doey", "123 Main Street, Suburb, 12345", 18.25f, 3.0f, -1f, examinationDate, "Williams");
         Prescription prescription2 = new Prescription(1, "John", "Doey", "123 Main Street, Suburb, 12345", 18.25f, 3.0f, 181f, examinationDate, "Williams");
@@ -116,7 +116,7 @@ class PrescriptionTest {
 	//invalid optometrist 
 	@Test
     void testInvalidOptometrist() {
-		Date examinationDate = createExaminationDate("2024-10-25");
+		Date examinationDate = createExaminationDate("25-10-2024");
 
         Prescription prescription1 = new Prescription(1, "John", "Doey", "123 Main Street, Suburb, 12345", 18.25f, 3.0f, 90f, examinationDate, "Jullian");
         Prescription prescription2 = new Prescription(1, "John", "Doey", "123 Main Street, Suburb, 12345", 18.25f, 3.0f, 90f, examinationDate, "Willy Wonka Alexander First");
@@ -129,7 +129,7 @@ class PrescriptionTest {
 	//valid remark test case
 	 @Test
 	    void testValidRemark() {
-	        Date examinationDate = createExaminationDate("2024-10-25");
+	        Date examinationDate = createExaminationDate("25-10-2024");
 	        Prescription prescription = new Prescription(1, "John", "Doey", "123 Main Street, Suburb, 12345",
 	                18.25f, 3.0f, 90f, examinationDate, "Williams");
 
@@ -142,7 +142,7 @@ class PrescriptionTest {
 	//invalid test case with short remark
 	 @Test
 	    void testInvalidShortRemark() {
-	        Date examinationDate = createExaminationDate("2024-10-25");
+	        Date examinationDate = createExaminationDate("25-10-2024");
 	        Prescription prescription = new Prescription(1, "John", "Doey", "123 Main Street, Suburb, 12345",
 	                18.25f, 3.0f, 90f, examinationDate, "Williams");
 	        //The remark is short
@@ -153,7 +153,7 @@ class PrescriptionTest {
 	    }
 	//invalid test case with long remark
 	 void testInvalidLongRemark() {
-	        Date examinationDate = createExaminationDate("2024-10-25");
+	        Date examinationDate = createExaminationDate("25-10-2024");
 	        Prescription prescription = new Prescription(1, "John", "Doey", "123 Main Street, Suburb, 12345",
 	                18.25f, 3.0f, 90f, examinationDate, "Williams");
 	       //The remark is long	        
@@ -168,7 +168,7 @@ class PrescriptionTest {
 	 
 	//The remark does not start with upper case 
 	 void testNoUppercaseRemark() {
-	        Date examinationDate = createExaminationDate("2024-10-25");
+	        Date examinationDate = createExaminationDate("25-10-2024");
 	        Prescription prescription = new Prescription(1, "John", "Doey", "123 Main Street, Suburb, 12345",
 	                18.25f, 3.0f, 90f, examinationDate, "Williams");
 	       
@@ -184,7 +184,7 @@ class PrescriptionTest {
 	//Invalid category test case 
 	 @Test
 	    void testInvalidCategory() {
-	        Date examinationDate = createExaminationDate("2024-10-25");
+	        Date examinationDate = createExaminationDate("25-10-2024");
 	        Prescription prescription = new Prescription(1, "John", "Doey", "123 Main Street, Suburb, 12345",
 	                18.25f, 3.0f, 90f, examinationDate, "Williams");
 
@@ -196,7 +196,7 @@ class PrescriptionTest {
 	//Invalid exceeding number of remarks 
 	 @Test
 	 void testExceedingRemarksLimit() {
-	     Date examinationDate = createExaminationDate("2024-10-25");
+	     Date examinationDate = createExaminationDate("25-10-2024");
 	     Prescription prescription = new Prescription(1, "John", "Doey", "123 Main Street, Suburb, 12345",
 	             18.25f, 3.0f, 90f, examinationDate, "Williams");
 
